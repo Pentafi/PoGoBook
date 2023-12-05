@@ -1,0 +1,19 @@
+﻿@model ASI.Basecode.Data.Models.Book
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>@Model.Title</h1>
+            <!-- Add other header elements like rating here -->
+        </div>
+        <div class="card-body">
+            <alt="@Model.Title" class="book-cover" />
+            <p>@Model.Description</p>
+            <!-- Add more details and 'Read Book' button here -->
+        </div>
+    </div>
+</div>

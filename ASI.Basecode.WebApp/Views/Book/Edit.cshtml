@@ -1,0 +1,89 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1 class="font-weight-bold">EDIT BOOK</h1>
+<div class="container mt-4" style="background-color: lightpink; border-radius: 10px; padding: 20px;">
+    <form id='book-app-form' class='needs-validation' novalidate>
+        <div class='mb-3'>
+            <label for='title' class='form-label'>Title:</label>
+            <input type='text' class='form-control' id='title' name='title' required>
+            <div class='invalid-feedback'>
+                Please provide a title.
+            </div>
+        </div>
+
+        <div class='mb-3'>
+            <label for='author' class='form-label'>Author:</label>
+            <input type='text' class='form-control' id='author' name='author' required>
+            <div class='invalid-feedback'>
+                Please provide an author name.
+            </div>
+        </div>
+
+        <div class='mb-3'>
+            <label for='genre' class='form-label'>Genre:</label>
+            <select class='form-select' id='genre' name='genre'>
+                <option value='fiction'>Fiction</option>
+                <option value='non-fiction'>Non-Fiction</option>
+                <option value='fantasy'>Fantasy</option>
+                <option value='mystery'>Mystery</option>
+                <option value='thriller'>Thriller</option>
+                <!-- More genres can be added here -->
+            </select>
+        </div>
+
+        <div class='mb-3'>
+            <label for='description' class='form-label'>Description:</label>
+            <textarea class='form-control' id='description' name='description' required></textarea>
+            <div class='invalid-feedback'>
+                Please provide a description.
+            </div>
+        </div>
+
+        <div class='mb-3'>
+            <label for='published-date' class='form-label'>Published Date:</label>
+            <input type='date' class='form-control' id='published-date' name='published_date' required>
+            <div class='invalid-feedback'>
+                Please provide a valid date.
+            </div>
+        </div>
+
+        <div class='mb-3'>
+            <label for='published-year' class='form-label'>Published Year:</label>
+            <input type='number' class='form-control' id='published-year' name='published_year' min='1000' max='9999' required>
+            <div class='invalid-feedback'>
+                Please provide a valid year.
+            </div>
+        </div>
+
+        <div class="align-content-end">
+            <button type='submit' class='btn btn-primary'>Submit</button>
+            <button type='button' class='btn btn-danger' onclick='deleteBook()'>Delete</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>

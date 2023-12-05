@@ -1,0 +1,105 @@
+﻿/* dashboard.css */
+
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar Brand Styling */
+.navbar-brand {
+    color: #FF5252;
+    font-weight: bold;
+}
+
+/* Navbar active link styling */
+.nav-link.active {
+    color: #FF5252 !important;
+    border-bottom: 2px solid #FF5252;
+}
+
+/* Navbar search button */
+.btn-outline-success {
+    color: #FF5252;
+    border-color: #FF5252;
+}
+
+    .btn-outline-success:hover {
+        background-color: #FF5252;
+        color: white;
+    }
+
+/* Book card styling */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+    .card:hover {
+        transform: scale(1.03);
+    }
+
+.card-img-top {
+    height: 200px; /* Adjust as needed */
+    object-fit: cover;
+}
+
+.card-title {
+    color: #333;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: none;
+}
+
+/* Star rating color */
+.text-muted .fa-star {
+    color: #FFD700; /* Gold color for stars */
+}
+
+/* Container adjustments */
+.container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Row adjustments */
+.row-cols-md-3 > * {
+    padding: 0 8px; /* Adjust the spacing between the cards */
+}
+
+/* Card button styling */
+.card .btn {
+    background-color: #FF5252;
+    color: white;
+}
+
+    .card .btn:hover {
+        background-color: darken(#FF5252, 10%);
+        color: white;
+    }
+
+/* This ensures that the 'View Book' button is aligned to the bottom of the card. */
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+    .card-body > .btn {
+        margin-top: auto;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .row-cols-md-3 > * {
+        padding: 0 4px; /* Reduce spacing on smaller screens */
+    }
+}

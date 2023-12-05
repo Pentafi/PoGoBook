@@ -15,7 +15,8 @@ namespace ASI.Basecode.Data.Interfaces
         IQueryable<Genre> GetGenreByBook(int bookId);
         void AddBook(Book book);
         void UpdateBook(Book book);
-        void DeleteBook(int Id);
-        bool BookExists(int Id);
+        void DeleteBook(int id);
+        bool BookExists(int id);
+        //bool BookExists(string bookID);
     }
 }

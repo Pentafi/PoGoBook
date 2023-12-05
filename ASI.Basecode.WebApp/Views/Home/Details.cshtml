@@ -1,0 +1,26 @@
+﻿@model ASI.Basecode.Data.Models.Book
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container mt-4" style="background: #ffcccb; padding: 20px; border-radius: 10px;">
+    <div class="row">
+        <!-- Left Column for Image, Star Rating, and Read Book Button -->
+        <div class="col-md-6 d-flex flex-column align-items-center justify-content-center" style="min-height: 350px;">
+            <img src="@Model.ImageUrl" alt="@Model.Title" style="max-height: 300px; width: auto; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <div style="color: yellow; font-size: 2rem;">
+                ★★★★☆ <!-- This is a placeholder, replace with dynamic rating if available -->
+            </div>
+            <button style="background-color: #f00; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Read Book</button>
+        </div>
+
+        <!-- Right Column for Book Name, Author, and Description -->
+        <div class="col-md-6">
+            <h2>@Model.Title</h2>
+            <p>Author: <strong>@Model.Author</strong></p>
+            <p style="color: #555;">@Model.Description</p>
+            <!-- Implement "Show more" functionality if needed -->
+        </div>
+    </div>
+</div>

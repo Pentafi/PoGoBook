@@ -1,8 +1,96 @@
-﻿@{
+﻿@model IEnumerable<ASI.Basecode.Data.Models.Book>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@section styles {
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Pogo Book</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Browse</a>
+                    </li>
+                </ul>
+                <form class="d-flex ml-auto">
+                    <input class="form-control me-3" type="search" placeholder="Search Books" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bookshelf -->
+    <div class="container mt-4" style="background-color: lightpink; border-radius: 10px;">
+        <div class="row row-cols-1 row-cols-md-3 g-4" style="display: flex; flex-wrap: nowrap;">
+
+            @foreach (var book in Model) {
+            <!-- Books -->
+            <div class="col" style="flex: 0 0 auto;">
+                <a href="@Url.Action("Details", "Home", new { id = book.Id })">
+                <div class="card h-100">
+                        <img src="@book.ImageUrl" class="card-img-top" alt="...">
+                    <div class="card-body">
+                            <h5 class="card-title">@book.Title</h5>
+                    </div>
+                    <div class="card-footer">
+                            <small class="text-muted">Last updated @book.LastUpdated</small>
+                    </div>
+                </div>
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+    
+    <!-- Recommendation Section -->
+    <div class="container mt-4">
+        <div class="card mb-3" style="background-color: lightgrey; border-radius: 10px; overflow: hidden;">
+            <div class="row g-0">
+                <div class="col-md-4" style="background: url('https://pm1.aminoapps.com/7159/1265b9bc477286d332bafd139477c409c4929ccar1-500-500v2_00.jpg') center; background-size: cover;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">One Piece, Volume 1: Romance Dawn (One Piece, #1)</h5>
+                        <p class="card-text"><small class="text-muted">★ ★ ★ ★ ☆</small></p>
+                        <p class="card-text">A new shonen sensation in Japan, this series features Monkey D. Luffy, whose main ambition is to become a pirate. Eating the Gum-Gum Fruit gives him strange powers but also in...</p>
+                        <a href="#" class="btn btn-primary" style=" background-color: pink;">Continue reading</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

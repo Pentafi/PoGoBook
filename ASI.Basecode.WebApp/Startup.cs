@@ -27,7 +27,7 @@ namespace ASI.Basecode.WebApp
 
             // Add services to the container.
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,9 +48,15 @@ namespace ASI.Basecode.WebApp
             app.UseCors("CorsPolicy");      // Enables CORS                              
             app.UseRouting();
             app.UseAuthentication();        // Enables the ConfigureAuth service.
-            app.UseMvc();
             app.UseAuthorization();
-            
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
             this.ConfigureRoutes(app);      // Configuration for API controller routing
             this.ConfigureAuth(app);        // Configuration for Token Authentication
         }
